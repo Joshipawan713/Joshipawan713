@@ -123,19 +123,19 @@
 // how node js works
 
 // express js
-const express = require('express');
-const app = express();
+// const express = require('express');
+// const app = express();
 
-app.get('',(request,response)=>{
-response.send("Hello , this is home page");
-});
+// app.get('',(request,response)=>{
+// response.send("Hello , this is home page");
+// });
 
-app.get('/about',(request,response)=>{
-response.send("Hello , this is About page");
-});
+// app.get('/about',(request,response)=>{
+// response.send("Hello , this is About page");
+// });
 
-app.get('/help',(request,response)=>{
-    response.send("Hello , this is Help page");
-});
+// app.get('/help',(request,response)=>{
+//     response.send("Hello , this is Help page");
+// });
 
-app.listen(4001);
+// app.listen(4001);
