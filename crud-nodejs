@@ -1,0 +1,68 @@
+// mongoose - validation apply and fields control
+// Schema - database all fileds define schema under
+// modal - schema used node js and mongodb connect
+
+// curud operation with mongoose
+// 1. create
+// 2. read
+// 3. update
+// 4. delete
+
+
+
+// acknowledged: true,
+// modifiedCount: 1,
+// upsertedId: null,
+// upsertedCount: 0,
+// matchedCount: 1
+
+const { name } = require('ejs');
+const mongoose = require('mongoose');
+
+mongoose.connect("mongodb+srv://jethat6:12345@cluster0.9tabcv9.mongodb.net/nodejsproject?retryWrites=true&w=majority&appName=Cluster0");
+const productschema = new mongoose.Schema({
+    name:String,
+    email:String
+})
+
+const saveInDB = async ()=>{
+const productmodal = mongoose.model('learnnodejs',productschema);
+let data = new productmodal({name:"test54",email:"test54@gmail.com"});
+let result = await data.save();
+console.log(result);
+}
+
+saveInDB
+
+const updateInDb= async ()=>{
+    const productmodal = mongoose.model('learnnodejs',productschema);
+    let data = await productmodal.updateOne(
+        {name:"test12"},
+        {
+            $set:{name:"test2"}
+        }
+    )
+    if(data.acknowledged){
+        console.log("Data Updated Successfully");
+    }
+}
+
+updateInDb();
+
+const deleteInDb = async () =>{
+    const productmodal = mongoose.model('learnnodejs',productschema);
+    let data = await productmodal.deleteOne({name:"test13"})
+    if(data.acknowledged){
+        console.log("Delete data Successfully");
+    }
+}
+
+deleteInDb();
+
+const findInDb = async () => {
+    const productmodal = mongoose.model('learnnodejs',productschema);
+    let data = await productmodal.find({name:"test22"});
+    console.log(data);
+}
+
+findInDb();
